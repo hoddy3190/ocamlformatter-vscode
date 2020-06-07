@@ -28,3 +28,13 @@ This extension contributes the following settings:
 
 - Merlin sometimes marks code as invalid after formatting
 - Doesn't or not always work on wsl
+
+## Build package
+
+```console
+$ cd /path/to/ocamlformatter-vscode
+$ npm i
+$ npm i -g vsce
+$ npm i -g yarn  # yarn is needed to run vsce
+$ vsce package
+```
