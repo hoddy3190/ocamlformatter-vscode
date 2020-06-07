@@ -17,7 +17,7 @@ function callOcamlFormatCommand(content: string, fileName: string, dir: string, 
 	const out = { text: "", error: null };
 	try {
 		const sanitizedContent = content.replace(/'/g, "'\\''");
-		let command = `cd '${dir}' && printf '%s' '${sanitizedContent}' | ocamlformat --name='${fileName}' --enable-outside-detected-project `;
+		let command = `cd '${dir}' && eval $(opam env --readonly 2> /dev/null); printf '%s' '${sanitizedContent}' | ocamlformat --name='${fileName}' --enable-outside-detected-project `;
 		if (profiles.includes(profile)) {
 			if (profile !== "own") {
 				command = command.concat(`--profile='${profile}' `);
